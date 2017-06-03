@@ -2,6 +2,8 @@ import { expect } from 'chai';
 
 import { Brigata } from './brigata';
 import { Chef } from './chef';
+import { Minestraio } from './minestraio';
+import { Pasticcere } from './pasticcere';
 
 describe(('Brigata'), () => {
     let brigata: Brigata;
@@ -9,7 +11,9 @@ describe(('Brigata'), () => {
     beforeEach(() => {
         // Arrange
         const chef = new Chef();
-        brigata = new Brigata(chef);
+        const minestraio = new Minestraio();
+        const pasticcere = new Pasticcere();
+        brigata = new Brigata(chef, minestraio, pasticcere);
     });
 
 
@@ -31,7 +35,7 @@ describe(('Brigata'), () => {
             expect(actual).to.equal('zuppa');
         });
 
-        xit('dovrebbe potermi portare della zuppa di ceci', () => {
+        it('dovrebbe potermi portare della zuppa di ceci', () => {
             // Act
             let actual = brigata.dammiZuppa('ceci');
 
@@ -51,7 +55,7 @@ describe(('Brigata'), () => {
             expect(actual).to.equal('torta');
         });
 
-        xit('dovrebbe potermi portare una torta alle noci', () => {
+        it('dovrebbe potermi portare una torta alle noci', () => {
             // Act
             let actual = brigata.dammiTorta('noci');
 

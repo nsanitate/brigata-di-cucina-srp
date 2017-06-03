@@ -1,11 +1,15 @@
 import { Chef } from './chef';
+import { Minestraio } from './minestraio';
+import { Pasticcere } from './pasticcere';
 
 export class Brigata {
 
     private coordinata = false;
 
     constructor(
-        private chef: Chef
+        private chef: Chef,
+        private minestraio: Minestraio,
+        private pasticcere: Pasticcere
     ) { }
 
     isCoordinata() {
@@ -16,12 +20,12 @@ export class Brigata {
     }
 
     dammiZuppa(ingrediente?: string) {
-        let zuppa = this.chef.preparaZuppa(ingrediente);
+        let zuppa = this.minestraio.preparaZuppa(ingrediente);
         return zuppa;
     }
 
     dammiTorta(ingrediente?: string) {
-        let torta = this.chef.preparaTorta(ingrediente);
+        let torta = this.pasticcere.preparaTorta(ingrediente);
         return torta;
     }
 
